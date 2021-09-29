@@ -1,0 +1,15 @@
+/Users/apple/www/projects/innovationvillage/learning/dotnet/voiceconverter/bin/Debug/net5.0/voiceconverter.deps.json
+/Users/apple/www/projects/innovationvillage/learning/dotnet/voiceconverter/bin/Debug/net5.0/voiceconverter.runtimeconfig.json
+/Users/apple/www/projects/innovationvillage/learning/dotnet/voiceconverter/bin/Debug/net5.0/voiceconverter.runtimeconfig.dev.json
+/Users/apple/www/projects/innovationvillage/learning/dotnet/voiceconverter/bin/Debug/net5.0/voiceconverter.dll
+/Users/apple/www/projects/innovationvillage/learning/dotnet/voiceconverter/bin/Debug/net5.0/ref/voiceconverter.dll
+/Users/apple/www/projects/innovationvillage/learning/dotnet/voiceconverter/bin/Debug/net5.0/voiceconverter.pdb
+/Users/apple/www/projects/innovationvillage/learning/dotnet/voiceconverter/obj/Debug/net5.0/voiceconverter.csproj.AssemblyReference.cache
+/Users/apple/www/projects/innovationvillage/learning/dotnet/voiceconverter/obj/Debug/net5.0/voiceconverter.GeneratedMSBuildEditorConfig.editorconfig
+/Users/apple/www/projects/innovationvillage/learning/dotnet/voiceconverter/obj/Debug/net5.0/voiceconverter.AssemblyInfoInputs.cache
+/Users/apple/www/projects/innovationvillage/learning/dotnet/voiceconverter/obj/Debug/net5.0/voiceconverter.AssemblyInfo.cs
+/Users/apple/www/projects/innovationvillage/learning/dotnet/voiceconverter/obj/Debug/net5.0/voiceconverter.csproj.CoreCompileInputs.cache
+/Users/apple/www/projects/innovationvillage/learning/dotnet/voiceconverter/obj/Debug/net5.0/voiceconverter.dll
+/Users/apple/www/projects/innovationvillage/learning/dotnet/voiceconverter/obj/Debug/net5.0/ref/voiceconverter.dll
+/Users/apple/www/projects/innovationvillage/learning/dotnet/voiceconverter/obj/Debug/net5.0/voiceconverter.pdb
+/Users/apple/www/projects/innovationvillage/learning/dotnet/voiceconverter/obj/Debug/net5.0/voiceconverter.genruntimeconfig.cache
