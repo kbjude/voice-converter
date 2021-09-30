@@ -22,14 +22,34 @@ namespace voiceconverter
                 var metadataCollection = GetMetada(metadataFilePath);
 
                 //* For each audio
-                //- Get the absolute path.
-                //- verify file checksum
-                //- generate a unique identifier
-                //- compress it
-                //- create its standalon meta file
+
+                foreach (var metadata in metadataCollection)
+                {
+                    //- Get the absolute path.
+                    var audioFilePath = Path.Combine(subfolder, metadata.File.FileName);
+                    //- verify file checksum
+
+                    var md5Checksum = GetChecksum(audioFilePath);
+                    if (md5Checksum != metadata.File.Md5CheckSum)
+                    {
+                        throw new Exception("Checksum not verified! File corrupted");
+                    }
+                    //- generate a unique identifier
+                    //- compress it
+                    //- create its standalon meta file
+                }
             }
         }
 
+        static object GetChecksum(string audioFilePath)
+        {
+            var fileStream = File.Open(audioFilePath, FileMode.Open);
+            var md5 = System.Cryptography.MD5.Create();
+            var md5Bytes = md5.ComputeHash(fileStream);
+            fileStream.Dispose();
+            return BitConverter.ToString(md5Bytes);
+
+        }
 
         static List<Metadata> GetMetada(string metadataFilePath)
         {
@@ -39,7 +59,7 @@ namespace voiceconverter
                 DateTimeFormat = new DateTimeFormat("yyy-MM-dd'T'HH:mm:ssZ")
             };
             var serializer = new DataContractJsonSerializer(typeof(List<Metadata>), settings);
-            return  (List<Metadata>)serializer.ReadObject(metadataFileStream);
+            return (List<Metadata>)serializer.ReadObject(metadataFileStream);
         }
     }
 }
