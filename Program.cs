@@ -36,13 +36,16 @@ namespace voiceconverter
                         throw new Exception("Checksum not verified! File corrupted");
                     }
                     //- generate a unique identifier we shall use the globally unique Id
-
                     var uniqurId = Guid.NewGuid();
                     metadata.File.FileName = uniqurId + ".mp3";
                     var newPath = Path.Combine("/Users/apple/www/projects/innovationvillage/learning/dotnet/uploads", uniqurId + ".mp3");
+
                     //- compress it
                     CreateCompressedFile(audioFilePath, newPath);
+
+
                     //- create its standalon meta file
+                    SaveSingleMetada(metadata, newPath + ".json");
                 }
             }
         }
@@ -81,13 +84,14 @@ namespace voiceconverter
 
         static List<Metadata> SaveSingleMetada(Metadata metadata, string metadataFilePath)
         {
+            Console.WriteLine($"Creating {metadataFilePath}");
             var metadataFileStream = File.Open(metadataFilePath, FileMode.Create);
             var settings = new DataContractJsonSerializerSettings
             {
                 DateTimeFormat = new DateTimeFormat("yyy-MM-dd'T'HH:mm:ssZ")
             };
             var serializer = new DataContractJsonSerializer(typeof(typeof<Metadata>), settings);
-            return (List<Metadata>)serializer.ReadObject(metadataFileStream);
+            serializer.WriteObject(metadataFileStream, metadata);
         }
     }
 }
