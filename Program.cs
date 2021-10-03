@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
+using System.IO.Compression;
 
 namespace voiceconverter
 {
@@ -40,9 +41,21 @@ namespace voiceconverter
                     metadata.File.FileName = uniqurId + ".mp3";
                     var newPath = Path.Combine("/Users/apple/www/projects/innovationvillage/learning/dotnet/uploads", uniqurId + ".mp3");
                     //- compress it
+                    CreateCompressedFile(audioFilePath, newPath);
                     //- create its standalon meta file
                 }
             }
+        }
+
+        static void CreateCompressedFile(string inputFilePath, string outputFilePath)
+        {
+            outputFilePath += ".gz";
+            Console.WriteLine($"Creating {outputFilePath}");
+            var inputFileStream = File.Open(inputFilePath, FileMode.Open);
+            var outputFileStream = File.Create(outputFilePath);
+            var gzipStream = new GZipStream(outputFileStream, CompressionLevel.Optimal);
+
+            inputFileStream.CopyTo(gzipStream);
         }
 
         static object GetChecksum(string audioFilePath)
@@ -63,6 +76,17 @@ namespace voiceconverter
                 DateTimeFormat = new DateTimeFormat("yyy-MM-dd'T'HH:mm:ssZ")
             };
             var serializer = new DataContractJsonSerializer(typeof(List<Metadata>), settings);
+            return (List<Metadata>)serializer.ReadObject(metadataFileStream);
+        }
+
+        static List<Metadata> SaveSingleMetada(Metadata metadata, string metadataFilePath)
+        {
+            var metadataFileStream = File.Open(metadataFilePath, FileMode.Create);
+            var settings = new DataContractJsonSerializerSettings
+            {
+                DateTimeFormat = new DateTimeFormat("yyy-MM-dd'T'HH:mm:ssZ")
+            };
+            var serializer = new DataContractJsonSerializer(typeof(typeof<Metadata>), settings);
             return (List<Metadata>)serializer.ReadObject(metadataFileStream);
         }
     }
