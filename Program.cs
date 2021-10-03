@@ -30,11 +30,15 @@ namespace voiceconverter
                     //- verify file checksum
 
                     var md5Checksum = GetChecksum(audioFilePath);
-                    if (md5Checksum != metadata.File.Md5CheckSum)
+                    if (md5Checksum.Replace("-", "").ToLower() != metadata.File.Md5CheckSum)
                     {
                         throw new Exception("Checksum not verified! File corrupted");
                     }
-                    //- generate a unique identifier
+                    //- generate a unique identifier we shall use the globally unique Id
+
+                    var uniqurId = Guid.NewGuid();
+                    metadata.File.FileName = uniqurId + ".mp3";
+                    var newPath = Path.Combine("/Users/apple/www/projects/innovationvillage/learning/dotnet/uploads", uniqurId + ".mp3");
                     //- compress it
                     //- create its standalon meta file
                 }

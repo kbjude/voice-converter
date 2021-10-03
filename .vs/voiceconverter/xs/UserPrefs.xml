@@ -1,17 +1,20 @@
 ﻿<Properties StartupConfiguration="{D5DCD250-B747-45BA-BD0E-760DE5041A84}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="../uploads/metadata.json">
+  <MonoDevelop.Ide.Workbench ActiveDocument="voiceconverter.csproj">
     <Files>
-      <File FileName="Program.cs" Line="29" Column="51" />
-      <File FileName="Metadata.cs" Line="10" Column="2" />
-      <File FileName="../uploads/metadata.json" Line="2" Column="1" />
+      <File FileName="Program.cs" Line="44" Column="18" />
+      <File FileName="Metadata.cs" />
+      <File FileName="../uploads/metadata.json" />
+      <File FileName="AudioFile.cs" />
+      <File FileName="voiceconverter.csproj" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="voiceconverter" expanded="True">
             <Node name="voiceconverter" expanded="True">
-              <Node name="Dependencies" expanded="True" />
-              <Node name="metadata.json" selected="True" />
+              <Node name="Dependencies" expanded="True">
+                <Node name="FrameworkReferences" expanded="True" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
